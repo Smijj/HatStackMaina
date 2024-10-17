@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3yfjp4cnq3gt"]
+[gd_scene load_steps=5 format=3 uid="uid://b3yfjp4cnq3gt"]
 
 [ext_resource type="PackedScene" uid="uid://2wek18pqbhi2" path="res://Scenes/Hat.tscn" id="1_iwqyt"]
 [ext_resource type="PackedScene" uid="uid://dhsltxyaadhj3" path="res://Scenes/GUI.tscn" id="3_neio8"]
+[ext_resource type="Texture2D" uid="uid://dm25p4ber33wv" path="res://Creative Assets/LilMan.png" id="3_uxcyk"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_fg88k"]
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+
+[node name="GUI" parent="." instance=ExtResource("3_neio8")]
 
 [node name="FocusGroup" type="Node2D" parent="."]
 z_index = 3
+position = Vector2(0, -150)
 
 [node name="Camera2D" type="Camera2D" parent="FocusGroup"]
 
@@ -22,8 +28,22 @@ texture = SubResource("CanvasTexture_fg88k")
 position = Vector2(-500, 0)
 
 [node name="Hat" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
+position = Vector2(484, 1)
+
+[node name="Hat2" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
+position = Vector2(484, -85)
+
+[node name="Hat3" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
+position = Vector2(475, -170)
+
+[node name="Hat4" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
+position = Vector2(475, -248)
 
 [node name="SpawnPosRight" type="Node2D" parent="FocusGroup"]
 position = Vector2(500, 0)
 
-[node name="GUI" parent="." instance=ExtResource("3_neio8")]
+[node name="LilMan" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="LilMan"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_uxcyk")
