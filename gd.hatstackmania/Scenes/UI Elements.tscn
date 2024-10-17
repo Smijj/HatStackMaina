@@ -2,22 +2,13 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_agqjk"]
 
-[node name="UI" type="Control"]
+[node name="UI Elements" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.359069, 0.359069, 0.359069, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
