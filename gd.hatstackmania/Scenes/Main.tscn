@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3yfjp4cnq3gt"]
+
+[ext_resource type="PackedScene" uid="uid://2wek18pqbhi2" path="res://Scenes/Hat.tscn" id="1_iwqyt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fg88k"]
+
+[node name="Main" type="Node2D"]
+
+[node name="FocusGroup" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="FocusGroup"]
+
+[node name="HatPositionIndicator" type="Sprite2D" parent="FocusGroup"]
+modulate = Color(0, 0.784314, 0.317647, 0.647059)
+position = Vector2(-1, 1)
+scale = Vector2(210.5, 121.5)
+texture = SubResource("CanvasTexture_fg88k")
+
+[node name="SpawnPosLeft" type="Node2D" parent="FocusGroup"]
+position = Vector2(-500, 0)
+
+[node name="Hat" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
+
+[node name="SpawnPosRight" type="Node2D" parent="FocusGroup"]
+position = Vector2(500, 0)

@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfkgu0lju4vby"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_agqjk"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.359069, 0.359069, 0.359069, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 150.0
+offset_bottom = 50.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = SubResource("CanvasTexture_agqjk")
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = SubResource("CanvasTexture_agqjk")
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+texture = SubResource("CanvasTexture_agqjk")
+stretch_mode = 4
