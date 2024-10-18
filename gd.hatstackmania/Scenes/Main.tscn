@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3yfjp4cnq3gt"]
+[gd_scene load_steps=6 format=3 uid="uid://b3yfjp4cnq3gt"]
 
 [ext_resource type="PackedScene" uid="uid://2wek18pqbhi2" path="res://Scenes/Hat.tscn" id="1_iwqyt"]
+[ext_resource type="Script" path="res://Scripts/HatCtrl.gd" id="2_mwy71"]
 [ext_resource type="PackedScene" uid="uid://dhsltxyaadhj3" path="res://Scenes/GUI.tscn" id="3_neio8"]
 [ext_resource type="Texture2D" uid="uid://dm25p4ber33wv" path="res://Creative Assets/LilMan.png" id="3_uxcyk"]
 
@@ -12,9 +13,12 @@ texture_filter = 1
 
 [node name="GUI" parent="." instance=ExtResource("3_neio8")]
 
-[node name="FocusGroup" type="Node2D" parent="."]
+[node name="FocusGroup" type="Node2D" parent="." node_paths=PackedStringArray("m_SpawnPosLeft", "m_SpawnPosRight")]
 z_index = 3
 position = Vector2(0, -150)
+script = ExtResource("2_mwy71")
+m_SpawnPosLeft = NodePath("SpawnPosLeft")
+m_SpawnPosRight = NodePath("SpawnPosRight")
 
 [node name="Camera2D" type="Camera2D" parent="FocusGroup"]
 
@@ -28,7 +32,7 @@ texture = SubResource("CanvasTexture_fg88k")
 position = Vector2(-500, 0)
 
 [node name="Hat" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
-position = Vector2(484, 1)
+position = Vector2(488, 9)
 
 [node name="Hat2" parent="FocusGroup/SpawnPosLeft" instance=ExtResource("1_iwqyt")]
 position = Vector2(484, -85)
