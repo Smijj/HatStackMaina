@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfkgu0lju4vby"]
+[gd_scene load_steps=5 format=3 uid="uid://dfkgu0lju4vby"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_agqjk"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="1_nj0uw"]
+[ext_resource type="Texture2D" uid="uid://bbrjepi4v5wep" path="res://Creative Assets/Heart.png" id="2_n63br"]
+[ext_resource type="FontFile" uid="uid://c8s2cm2ibp1po" path="res://Creative Assets/dogica.ttf" id="3_htvrl"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="4_1ipkm"]
 
 [node name="UI Elements" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,32 +14,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 15.0
-offset_right = 150.0
-offset_bottom = 50.0
-theme_override_constants/separation = 10
+[node name="HealthBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 72.0
+grow_horizontal = 2
+pivot_offset = Vector2(75, 0)
+theme_override_constants/separation = 5
 alignment = 1
+script = ExtResource("1_nj0uw")
+m_UnhealthyColour = Color(0.00316418, 0.0257677, 0.074517, 1)
+m_HeartSprite = ExtResource("2_n63br")
 
-[node name="Heart" type="TextureRect" parent="HBoxContainer"]
-modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(35, 0)
+[node name="TextureRect" type="TextureRect" parent="HealthBar"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-texture = SubResource("CanvasTexture_agqjk")
+texture = ExtResource("2_n63br")
 stretch_mode = 4
 
-[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
-modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(35, 0)
-layout_mode = 2
-texture = SubResource("CanvasTexture_agqjk")
-stretch_mode = 4
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.0
+offset_top = 43.0
+offset_right = 133.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_htvrl")
+theme_override_font_sizes/font_size = 24
+text = "Press    Space"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
-modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(35, 0)
-layout_mode = 2
-texture = SubResource("CanvasTexture_agqjk")
-stretch_mode = 4
+[node name="ScoreTitle" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_left = 15.0
+offset_top = 32.0
+offset_right = 351.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("3_htvrl")
+theme_override_font_sizes/font_size = 24
+text = "Score"
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="ScoreTitle"]
+texture_filter = 1
+layout_mode = 1
+offset_top = 51.0
+offset_right = 330.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("3_htvrl")
+theme_override_font_sizes/font_size = 40
+text = "0"
+script = ExtResource("4_1ipkm")

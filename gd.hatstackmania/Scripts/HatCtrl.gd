@@ -2,9 +2,9 @@ class_name HatCtrl
 extends Node2D
 
 enum HatStates {
-	None,
-	Moving,
-	Placed
+	NONE,
+	MOVING,
+	PLACED
 }
 
 signal HatDone(wasSuccessful:bool)
@@ -17,14 +17,17 @@ signal HatDone(wasSuccessful:bool)
 @export_group("Refs")
 @export var m_HatSprite: Sprite2D
 
-var m_HatState: HatStates = HatStates.None
+var m_HatState: HatStates = HatStates.NONE
 var m_TargetPos: Vector2 = Vector2.ZERO
 var m_StartPos: Vector2 = Vector2.ZERO
 var m_EndPos: Vector2 = Vector2.ZERO
 
+#func _ready() -> void:
+	#GameManager.GameOver.connect(Destroy)
+
 func _process(delta: float) -> void:
 	# Move Hat based on state
-	if m_HatState == HatStates.Moving:
+	if m_HatState == HatStates.MOVING:
 		global_position = lerp(m_StartPos, m_EndPos, m_TravelTimeCounter/m_TravelTime)
 		
 		if m_TravelTimeCounter < m_TravelTime:
@@ -40,13 +43,13 @@ func Init(hatSprite: Texture, target: Vector2, startPos: Vector2, endPos: Vector
 	m_StartPos = startPos
 	m_EndPos = endPos
 	
-	m_HatState = HatStates.Moving
+	m_HatState = HatStates.MOVING
 	
 	return HatDone
 
 func Stop(errorMargin: float = 0) -> bool:
 	if IsSuccessful(errorMargin):
-		m_HatState = HatStates.Placed
+		m_HatState = HatStates.PLACED
 		HatDone.emit(true)
 		return true
 	
