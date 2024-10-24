@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0kb1ojeqird2"
-path="res://.godot/imported/Hat1.png-820587d0813a01670da8f8e450153c7c.ctex"
+uid="uid://bk11arey8txwb"
+path="res://.godot/imported/04_Skye's Hats.png-7db84b7d957d7156328f23c993bfe412.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Creative Assets/Hat1.png"
-dest_files=["res://.godot/imported/Hat1.png-820587d0813a01670da8f8e450153c7c.ctex"]
+source_file="res://Creative Assets/Hats/04_Skye's Hats.png"
+dest_files=["res://.godot/imported/04_Skye's Hats.png-7db84b7d957d7156328f23c993bfe412.ctex"]
 
 [params]
 
